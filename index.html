@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>LINE Rich Menu Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Microsoft JhengHei', sans-serif;
+        }
+
+        /* 模擬 LINE 大型選單尺寸 2500px x 1686px，這裡等比例縮小顯示 */
+        #rich-menu {
+            width: 1200px; /* 寬度 */
+            height: 810px; /* 高度 (維持比例) */
+            background-color: #f0f2f5;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* 三欄 */
+            grid-template-rows: 1fr 1fr;       /* 兩列 */
+            gap: 4px; /* 格線間距 */
+            border: 4px solid #2563eb; /* 外框 */
+            box-sizing: border-box;
+        }
+
+        .menu-item {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #3b82f6; /* 主色調藍色 */
+            position: relative;
+        }
+
+        /* 按鈕 hover 效果 (截圖時不需要，但預覽好看) */
+        .menu-item:hover {
+            background-color: #eff6ff;
+        }
+
+        .icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
+        }
+
+        .label {
+            font-size: 36px;
+            font-weight: 900;
+            color: #1e3a8a; /* 深藍色文字 */
+            letter-spacing: 2px;
+        }
+
+        .sub-label {
+            font-size: 18px;
+            color: #9ca3af;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* 特別色：警告 */
+        .alert-item .icon { color: #ef4444; }
+        .alert-item .label { color: #b91c1c; }
+
+        /* 特別色：主要行動 */
+        .primary-item { background-color: #eff6ff; }
+        
+        /* 輔助線 (截圖後 LINE 會自己切，這裡只是視覺區隔) */
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: #eee;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="rich-menu">
+        
+        <div class="menu-item primary-item">
+            <i class="fa-solid fa-house-signal icon"></i>
+            <div class="label">打開儀表板</div>
+            <div class="sub-label">Dashboard</div>
+        </div>
+
+        <div class="menu-item">
+            <i class="fa-solid fa-bullhorn icon"></i>
+            <div class="label">一鍵巡房</div>
+            <div class="sub-label">Check Status</div>
+        </div>
+
+        <div class="menu-item">
+            <i class="fa-solid fa-map-location-dot icon"></i>
+            <div class="label">家中地點</div>
+            <div class="sub-label">Select Room</div>
+        </div>
+
+        <div class="menu-item alert-item">
+            <i class="fa-solid fa-bucket icon"></i>
+            <div class="label">誰水滿了？</div>
+            <div class="sub-label">Water Full Alert</div>
+        </div>
+
+        <div class="menu-item">
+            <i class="fa-solid fa-robot icon"></i>
+            <div class="label">今日碎碎念</div>
+            <div class="sub-label">Daily Chat</div>
+        </div>
+
+        <div class="menu-item">
+            <i class="fa-solid fa-sliders icon"></i>
+            <div class="label">設定與指令</div>
+            <div class="sub-label">Settings</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
